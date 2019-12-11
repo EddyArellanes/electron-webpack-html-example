@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "dev": "electron-webpack dev",
-    "start": "electron index.js",
+    "compile": "electron-webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Eddy Arellanes Bastida",
   "license": "ISC",
   "dependencies": {
-    "electron": "^7.1.4"
+    "electron": "^7.1.4",
+    "xel": "0.0.213"
   },
   "devDependencies": {
+    "devtron": "^1.4.0",
     "electron-webpack": "^2.7.4",
     "webpack": "^4.41.2"
   },
@@ -22,15 +24,14 @@
     "commonSourceDirectory": "src/common",
     "staticSourceDirectory": "src/static",
     "title": true,
-    "whiteListedModules": ["foo-ui-library"],
-  
+    "whiteListedModules": [
+      "foo-ui-library"
+    ],
     "main": {
       "sourceDirectory": "src/main",
       "webpackConfig": "webpack.config.js"
     },
-  
     "renderer": {
-      "dll": ["fooModule"],
       "sourceDirectory": "src/renderer",
       "template": "src/renderer/index.html"
     }

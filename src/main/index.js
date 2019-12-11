@@ -8,8 +8,8 @@ const config = require('./config/browserwindow')
 let frontendPath = __dirname.split("\\")
 frontendPath = frontendPath.splice(0,6)
 frontendPath = frontendPath.join("/") 
-//frontendPath = 'file://' + frontendPath + '/src/rendered/index.html'
-frontendPath = 'file:///C:/Users/EDDY-ARELLANES/Documents/Test-Projects/Electron-HelloWorld/src/renderer/index.html'
+frontendPath = 'file:///' + frontendPath + '/src/renderer/index.html'
+
 app.on('ready', () => {
   let win = new BrowserWindow( config)
 
@@ -28,7 +28,8 @@ app.on('ready', () => {
 
   //win.loadURL('https://eddyarellanes.dev') //Appear when ready-to-show is Done
   console.log( "Path:",frontendPath)
-  win.loadURL(frontendPath)
+  win.loadURL( frontendPath)
+  win.openDevTools(); //If you wanna Open the devTools
 })
 
 app.on('before-quit', () => {
