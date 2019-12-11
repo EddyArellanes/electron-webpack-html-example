@@ -1,0 +1,38 @@
+{
+  "name": "electron-hello-start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "start": "electron index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Eddy Arellanes Bastida",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^7.1.4"
+  },
+  "devDependencies": {
+    "electron-webpack": "^2.7.4",
+    "webpack": "^4.41.2"
+  },
+  "electronWebpack": {
+    "commonSourceDirectory": "src/common",
+    "staticSourceDirectory": "src/static",
+    "title": true,
+    "whiteListedModules": ["foo-ui-library"],
+  
+    "main": {
+      "sourceDirectory": "src/main",
+      "webpackConfig": "webpack.config.js"
+    },
+  
+    "renderer": {
+      "dll": ["fooModule"],
+      "sourceDirectory": "src/renderer",
+      "template": "src/renderer/index.html"
+    }
+  }
+}
